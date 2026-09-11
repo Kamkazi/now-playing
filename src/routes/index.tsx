@@ -174,7 +174,7 @@ function NowPlaying() {
           <div className="mt-1.5 flex justify-between font-mono text-xs text-muted-foreground"><span>{formatTime(position)}</span><span>−{formatTime(track.duration - position)}</span></div>
         </section>
 
-        <section className="relative px-5 pb-[max(1.1rem,env(safe-area-inset-bottom))] pt-3">
+        <section className="relative px-5 pb-[max(3rem,env(safe-area-inset-bottom))] pt-3">
           <div className="grid grid-cols-[1fr_2fr_1fr] items-center gap-3">
 
             <div className="grid gap-3">
