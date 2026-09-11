@@ -1,7 +1,7 @@
-import solsticeArt from "@/assets/album-solstice.jpg";
-import nightLinesArt from "@/assets/album-night-lines.jpg";
-import circularArt from "@/assets/album-circular.jpg";
-import maraPortrait from "@/assets/composer-mara.jpg";
+import aashiquiArt from "@/assets/album-aashiqui.jpg";
+import rangeelaArt from "@/assets/album-rangeela.jpg";
+import ddljArt from "@/assets/album-ddlj.jpg";
+import composerPhoto from "@/assets/composer-portrait.jpg";
 
 export type Track = {
   id: number;
@@ -17,27 +17,29 @@ export type Track = {
 };
 
 export const tracks: [Track, ...Track[]] = [
-  { id: 1, title: "Sun Through Static", album: "Signal / Solstice", year: 1976, artist: "The Meridian Assembly", composer: "Mara Venn", genre: "Experimental Soul", duration: 253, art: solsticeArt, track: 1 },
-  { id: 2, title: "Copper Horizon", album: "Signal / Solstice", year: 1976, artist: "The Meridian Assembly", composer: "Mara Venn", genre: "Experimental Soul", duration: 218, art: solsticeArt, track: 2 },
-  { id: 3, title: "Antenna Bloom", album: "Signal / Solstice", year: 1976, artist: "The Meridian Assembly", composer: "Mara Venn", genre: "Experimental Soul", duration: 287, art: solsticeArt, track: 3 },
-  { id: 4, title: "Night Lines", album: "Blue Hour Geometry", year: 1968, artist: "Calder Reed Quartet", composer: "Calder Reed", genre: "Modal Jazz", duration: 326, art: nightLinesArt, track: 1 },
-  { id: 5, title: "Second Platform", album: "Blue Hour Geometry", year: 1968, artist: "Calder Reed Quartet", composer: "Calder Reed", genre: "Modal Jazz", duration: 301, art: nightLinesArt, track: 2 },
-  { id: 6, title: "Amber Transit", album: "Blue Hour Geometry", year: 1968, artist: "Calder Reed Quartet", composer: "Mara Venn", genre: "Modal Jazz", duration: 274, art: nightLinesArt, track: 3 },
-  { id: 7, title: "Circular Motion I", album: "Objects in Motion", year: 1973, artist: "Venn Chamber Ensemble", composer: "Mara Venn", genre: "Modern Classical", duration: 365, art: circularArt, track: 1 },
-  { id: 8, title: "Circular Motion II", album: "Objects in Motion", year: 1973, artist: "Venn Chamber Ensemble", composer: "Mara Venn", genre: "Modern Classical", duration: 298, art: circularArt, track: 2 },
-  { id: 9, title: "A Room of Echoes", album: "Objects in Motion", year: 1973, artist: "Venn Chamber Ensemble", composer: "Mara Venn", genre: "Modern Classical", duration: 242, art: circularArt, track: 3 },
+  { id: 1, title: "Ab Tere Bin Jee Lenge Hum", album: "Aashiqui", year: 1990, artist: "Kumar Sanu", composer: "Nadeem–Shravan", genre: "Filmi Romance", duration: 305, art: aashiquiArt, track: 1 },
+  { id: 2, title: "Dheere Dheere Se Meri Zindagi", album: "Aashiqui", year: 1990, artist: "Kumar Sanu, Anuradha Paudwal", composer: "Nadeem–Shravan", genre: "Filmi Romance", duration: 388, art: aashiquiArt, track: 2 },
+  { id: 3, title: "Nazar Ke Saamne", album: "Aashiqui", year: 1990, artist: "Kumar Sanu, Anuradha Paudwal", composer: "Nadeem–Shravan", genre: "Filmi Romance", duration: 341, art: aashiquiArt, track: 3 },
+  { id: 4, title: "Tanha Tanha", album: "Rangeela", year: 1995, artist: "Asha Bhosle", composer: "A. R. Rahman", genre: "Filmi Pop", duration: 340, art: rangeelaArt, track: 1 },
+  { id: 5, title: "Yaaro Sun Lo Zara", album: "Rangeela", year: 1995, artist: "Udit Narayan, K. S. Chithra", composer: "A. R. Rahman", genre: "Filmi Pop", duration: 351, art: rangeelaArt, track: 2 },
+  { id: 6, title: "Hai Rama", album: "Rangeela", year: 1995, artist: "Hariharan, Swarnalatha", composer: "A. R. Rahman", genre: "Filmi Pop", duration: 310, art: rangeelaArt, track: 3 },
+  { id: 7, title: "Tujhe Dekha To Ye Jaana Sanam", album: "Dilwale Dulhania Le Jayenge", year: 1995, artist: "Lata Mangeshkar, Kumar Sanu", composer: "Jatin–Lalit", genre: "Filmi Soundtrack", duration: 292, art: ddljArt, track: 1 },
+  { id: 8, title: "Mehndi Laga Ke Rakhna", album: "Dilwale Dulhania Le Jayenge", year: 1995, artist: "Lata Mangeshkar, Udit Narayan", composer: "Jatin–Lalit", genre: "Filmi Soundtrack", duration: 380, art: ddljArt, track: 2 },
+  { id: 9, title: "Ho Gaya Hai Tujhko To Pyar Sajna", album: "Dilwale Dulhania Le Jayenge", year: 1995, artist: "Lata Mangeshkar, Udit Narayan", composer: "Jatin–Lalit", genre: "Filmi Soundtrack", duration: 405, art: ddljArt, track: 3 },
 ];
 
-export const composerPortrait = maraPortrait;
+export const composerPortrait = composerPhoto;
 
 export const searchCollections = [
-  { type: "Albums", name: "Signal / Solstice", detail: "The Meridian Assembly · 1976", art: solsticeArt, trackId: 1 },
-  { type: "Albums", name: "Blue Hour Geometry", detail: "Calder Reed Quartet · 1968", art: nightLinesArt, trackId: 4 },
-  { type: "Albums", name: "Objects in Motion", detail: "Venn Chamber Ensemble · 1973", art: circularArt, trackId: 7 },
-  { type: "Artists", name: "The Meridian Assembly", detail: "Artist · 3 albums", art: solsticeArt, trackId: 1 },
-  { type: "Artists", name: "Calder Reed Quartet", detail: "Artist · 5 albums", art: nightLinesArt, trackId: 4 },
-  { type: "Composers", name: "Mara Venn", detail: "Composer · 18 works", art: maraPortrait, trackId: 1 },
-  { type: "Playlists", name: "After Midnight", detail: "Playlist · 24 songs", art: nightLinesArt, trackId: 4 },
-  { type: "Genres", name: "Experimental Soul", detail: "Genre · 42 songs", art: solsticeArt, trackId: 1 },
-  { type: "Genres", name: "Modern Classical", detail: "Genre · 67 songs", art: circularArt, trackId: 7 },
+  { type: "Albums", name: "Aashiqui", detail: "Nadeem–Shravan · 1990", art: aashiquiArt, trackId: 1 },
+  { type: "Albums", name: "Rangeela", detail: "A. R. Rahman · 1995", art: rangeelaArt, trackId: 4 },
+  { type: "Albums", name: "Dilwale Dulhania Le Jayenge", detail: "Jatin–Lalit · 1995", art: ddljArt, trackId: 7 },
+  { type: "Artists", name: "Kumar Sanu", detail: "Artist · 128 songs", art: aashiquiArt, trackId: 1 },
+  { type: "Artists", name: "Asha Bhosle", detail: "Artist · 214 songs", art: rangeelaArt, trackId: 4 },
+  { type: "Artists", name: "Lata Mangeshkar", detail: "Artist · 302 songs", art: ddljArt, trackId: 7 },
+  { type: "Composers", name: "A. R. Rahman", detail: "Composer · 46 works", art: composerPhoto, trackId: 4 },
+  { type: "Composers", name: "Nadeem–Shravan", detail: "Composer · 61 works", art: composerPhoto, trackId: 1 },
+  { type: "Playlists", name: "90s Retro Hindi", detail: "Playlist · 32 songs", art: rangeelaArt, trackId: 4 },
+  { type: "Genres", name: "Filmi Romance", detail: "Genre · 88 songs", art: aashiquiArt, trackId: 1 },
+  { type: "Genres", name: "Filmi Pop", detail: "Genre · 54 songs", art: rangeelaArt, trackId: 4 },
 ];
