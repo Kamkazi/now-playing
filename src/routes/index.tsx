@@ -73,6 +73,12 @@ function NowPlaying() {
 
   const track = tracks.find((item) => item.id === trackId) ?? tracks[0];
   const queue = queueIds.map((id) => tracks.find((item) => item.id === id)).filter((item): item is Track => Boolean(item));
+  const nextTrack = useMemo(() => {
+    const idx = queueIds.indexOf(trackId);
+    const nextIdx = (idx + 1) % (queue.length || 1);
+    return queue[nextIdx];
+  }, [queue, queueIds, trackId]);
+
 
   useEffect(() => {
     const raw = localStorage.getItem("now-playing-state");
