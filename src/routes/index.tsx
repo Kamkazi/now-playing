@@ -11,7 +11,6 @@ import {
   Music2,
   Pause,
   Play,
-  Quote,
   Repeat2,
   Search,
   Settings,
