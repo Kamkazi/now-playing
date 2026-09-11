@@ -2,7 +2,7 @@
 
 A mobile-first, single-screen music player. No tabs, no feeds. The app opens straight onto the player, paused exactly where you left off.
 
-This plan builds the complete interface with realistic sample music data. Connecting a real Navidrome/Subsonic server is a follow-up step: the settings screen and the data layer are shaped for it, but no live server calls are made yet.
+This plan builds a functional iPhone interface prototype with realistic static, local sample data. It will guide the later Xcode/Swift app, but includes no live Navidrome/Subsonic calls or production streaming implementation.
 
 ## Look and feel
 
@@ -39,14 +39,15 @@ Streaming only — no local music library access, so no permission prompt on fir
 
 ## Resume behaviour
 
-Everything the player needs to resume is written to the device as it changes: current track, exact position in seconds, queue order, and repeat/shuffle state. On launch the player restores that snapshot and sits paused at the saved timestamp — press play and it continues. Playback keeps running while the app is backgrounded.
+The prototype demonstrates resume behaviour locally: current track, exact position, queue order, and repeat/shuffle state are retained between visits. On launch the player restores that snapshot and sits paused at the saved timestamp. True iOS background playback will be implemented later in Xcode/Swift.
 
 ## Technical notes
 
-- Routes: `/` renders the player; search, queue, info and settings are overlays/sheets over it, not separate pages, so the player is never left.
-- Playback state lives in one React context with a reducer (track, position, queue, repeat, shuffle, isPlaying), backed by an `<audio>` element and a rAF/interval tick for position.
-- Persistence: `localStorage` snapshot written on state change (throttled for position, ~1s). Restored on mount behind a hydration guard so SSR and client render match; audio `currentTime` is set on restore, always paused.
-- Background playback: Media Session API for lock-screen metadata and transport controls; audio element keeps playing when the tab is hidden.
+- The interface is built as a mobile web prototype sized and behaved like an iPhone app; it does not generate an Xcode or Swift project.
+- `/` renders the player; search, queue, info and settings appear as native-feeling sheets over it, so the player is never left.
+- Playback interactions use a local React state model for track, position, queue, repeat, shuffle, favourite, and play/pause.
+- A local browser snapshot demonstrates exact resume state between visits, restored paused at the saved timestamp.
+- Audio playback and iOS lock-screen/background integration are represented in the interface only; production AVFoundation/MediaPlayer behaviour remains for the Swift build.
 - Sample library: a local module of ~20 tracks with albums, artists, composers, genres and playlists so search, queue and metadata all behave realistically. Album/composer artwork generated as assets.
 - Design tokens (all colors, shadows, radii, fonts) go in `src/styles.css` under `@theme inline`; no hardcoded colors in components. Retro fonts loaded via `<link>` in the root route.
 - Queue reordering uses pointer-based drag on the list rows (no drag-and-drop library).
