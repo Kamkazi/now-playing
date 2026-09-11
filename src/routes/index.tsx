@@ -73,6 +73,12 @@ function NowPlaying() {
 
   const track = tracks.find((item) => item.id === trackId) ?? tracks[0];
   const queue = queueIds.map((id) => tracks.find((item) => item.id === id)).filter((item): item is Track => Boolean(item));
+  const nextTrack = useMemo(() => {
+    const idx = queueIds.indexOf(trackId);
+    const nextIdx = (idx + 1) % (queue.length || 1);
+    return queue[nextIdx];
+  }, [queue, queueIds, trackId]);
+
 
   useEffect(() => {
     const raw = localStorage.getItem("now-playing-state");
@@ -178,16 +184,15 @@ function NowPlaying() {
         </section>
 
         <section className="relative px-5 pb-[max(3rem,env(safe-area-inset-bottom))] pt-3">
-          <div className="grid grid-cols-[1fr_2fr_1fr] items-center gap-3">
-
+          <div className="grid grid-cols-[3rem_1fr_3rem] items-center justify-items-center gap-3">
             <div className="grid gap-3">
               <Button aria-label="Show lyrics" variant="player" size="control" onClick={() => setPanel("lyrics")}><Mic2 /></Button>
               <Button aria-label={repeat ? "Repeat on" : "Repeat off"} variant={repeat ? "active" : "player"} size="control" onClick={() => setRepeat(!repeat)}><Repeat2 /></Button>
             </div>
-            <div className="control-dial mx-auto grid h-[174px] w-[174px] grid-cols-3 grid-rows-3 place-items-center rounded-full border border-border">
+            <div className="control-dial mx-auto grid h-[192px] w-[192px] grid-cols-3 grid-rows-3 place-items-center rounded-full border border-border">
               <Button aria-label={favourite ? "Remove favourite" : "Favourite"} variant="ghost" size="icon" className="col-start-2" onClick={() => setFavourite(!favourite)}><Heart className={cn("h-6 w-6", favourite && "fill-current text-primary")} /></Button>
               <Button aria-label="Previous track" variant="ghost" size="icon" className="col-start-1 row-start-2" onClick={() => skip(-1)}><SkipBack className="h-7 w-7 fill-current" /></Button>
-              <Button aria-label={isPlaying ? "Pause" : "Play"} variant="primaryDial" size="dial" className="col-start-2 row-start-2" onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? <Pause className="h-8 w-8 fill-current" /> : <Play className="ml-1 h-8 w-8 fill-current" />}</Button>
+              <Button aria-label={isPlaying ? "Pause" : "Play"} variant="primaryDial" size="dial" className="col-start-2 row-start-2" onClick={() => setIsPlaying(!isPlaying)}>{isPlaying ? <Pause className="h-9 w-9 fill-current" /> : <Play className="ml-1 h-9 w-9 fill-current" />}</Button>
               <Button aria-label="Next track" variant="ghost" size="icon" className="col-start-3 row-start-2" onClick={() => skip(1)}><SkipForward className="h-7 w-7 fill-current" /></Button>
               <Button aria-label="AirPlay options" variant="ghost" size="icon" className="col-start-2 row-start-3" onClick={() => setPanel("airplay")}><Airplay className="h-6 w-6" /></Button>
             </div>
@@ -196,8 +201,11 @@ function NowPlaying() {
               <Button aria-label={shuffle ? "Shuffle on" : "Shuffle off"} variant={shuffle ? "active" : "player"} size="control" onClick={() => setShuffle(!shuffle)}><Shuffle /></Button>
             </div>
           </div>
-          <button onClick={() => setPanel("queue")} className="mx-auto mt-3 block max-w-full truncate text-center text-xs text-muted-foreground transition-colors hover:text-foreground">Up next in <strong className="font-semibold text-foreground">{track.album}</strong></button>
+          <button onClick={() => setPanel("queue")} className="mx-auto mt-4 block max-w-full truncate rounded-full border border-border px-3 py-1.5 text-center text-xs text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground">
+            {nextTrack ? <><span className="font-semibold text-foreground">Up next:</span> {nextTrack.title}</> : <span className="font-semibold text-foreground">Queue empty</span>}
+          </button>
         </section>
+
       </section>
 
       <PlayerPanel panel={panel} onClose={() => setPanel(null)} track={track} queue={queue} setQueueIds={setQueueIds} moveTrack={moveTrack} playTrack={playTrack} notice={notice} setNotice={setNotice} />
