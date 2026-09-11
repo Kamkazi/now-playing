@@ -171,11 +171,12 @@ function NowPlaying() {
             <span className="shrink-0 rounded-full border border-border px-2 py-1 font-mono text-[10px] uppercase">Hi-Res</span>
           </div>
           <Slider aria-label="Track progress" value={[position]} max={track.duration} step={1} onValueChange={(value) => setPosition(value[0] ?? 0)} className="mt-4" />
-          <div className="mt-2 flex justify-between font-mono text-xs text-muted-foreground"><span>{formatTime(position)}</span><span>−{formatTime(track.duration - position)}</span></div>
+          <div className="mt-1.5 flex justify-between font-mono text-xs text-muted-foreground"><span>{formatTime(position)}</span><span>−{formatTime(track.duration - position)}</span></div>
         </section>
 
-        <section className="relative mt-auto px-5 pb-[max(1.4rem,env(safe-area-inset-bottom))] pt-4">
+        <section className="relative px-5 pb-[max(1.1rem,env(safe-area-inset-bottom))] pt-3">
           <div className="grid grid-cols-[1fr_2fr_1fr] items-center gap-3">
+
             <div className="grid gap-3">
               <Button aria-label="Show lyrics" variant="player" size="control" onClick={() => setPanel("lyrics")}><span className="font-display text-base font-bold">LYR</span></Button>
               <Button aria-label={repeat ? "Repeat on" : "Repeat off"} variant={repeat ? "active" : "player"} size="control" onClick={() => setRepeat(!repeat)}><Repeat2 /></Button>
