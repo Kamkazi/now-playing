@@ -16,9 +16,13 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground active:scale-95",
         link: "text-primary underline-offset-4 hover:underline",
-        player: "rounded-full border border-border bg-secondary text-secondary-foreground shadow-tactile hover:bg-accent active:translate-y-px active:shadow-inset",
-        active: "rounded-full border border-primary bg-primary text-primary-foreground shadow-inset active:translate-y-px",
-        primaryDial: "rounded-full border-2 border-border bg-primary text-primary-foreground shadow-tactile hover:bg-primary/90 active:translate-y-px active:shadow-inset",
+        player:
+          "rounded-full border border-border bg-gradient-to-b from-secondary to-[color-mix(in_oklab,var(--secondary)_70%,var(--overlay))] text-secondary-foreground shadow-tactile transition-[transform,box-shadow,background-color] hover:brightness-110 active:translate-y-[3px] active:shadow-inset active:brightness-95",
+        active:
+          "rounded-full border border-primary bg-primary text-primary-foreground shadow-inset transition-[transform,box-shadow] active:translate-y-[2px]",
+        primaryDial:
+          "rounded-full border border-[color-mix(in_oklab,var(--primary)_60%,var(--overlay))] bg-gradient-to-b from-[color-mix(in_oklab,var(--primary)_88%,white)] to-primary text-primary-foreground shadow-tactile transition-[transform,box-shadow,filter] hover:brightness-110 active:translate-y-[3px] active:shadow-inset active:brightness-95",
+
       },
       size: {
         default: "h-9 px-4 py-2",
