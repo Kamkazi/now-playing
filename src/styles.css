@@ -71,43 +71,53 @@
 
 :root, .dark {
   --radius: 0.5rem;
-  --background: oklch(0.20 0.021 52);
-  --foreground: oklch(0.93 0.028 82);
-  --card: oklch(0.25 0.025 52);
-  --card-foreground: oklch(0.93 0.028 82);
-  --popover: oklch(0.23 0.023 52);
-  --popover-foreground: oklch(0.93 0.028 82);
-  --primary: oklch(0.66 0.17 47);
-  --primary-foreground: oklch(0.17 0.02 50);
-  --secondary: oklch(0.32 0.028 55);
-  --secondary-foreground: oklch(0.93 0.028 82);
-  --muted: oklch(0.29 0.024 55);
-  --muted-foreground: oklch(0.70 0.032 72);
-  --accent: oklch(0.37 0.038 58);
-  --accent-foreground: oklch(0.95 0.026 82);
-  --destructive: oklch(0.55 0.19 27);
-  --destructive-foreground: oklch(0.96 0.01 80);
-  --border: oklch(0.36 0.03 55);
-  --input: oklch(0.33 0.028 55);
-  --ring: oklch(0.66 0.17 47);
-  --shell: oklch(0.13 0.014 48);
-  --overlay: oklch(0.09 0.011 45);
+  --background: oklch(0.22 0.003 250);
+  --foreground: oklch(0.94 0.002 250);
+  --card: oklch(0.26 0.003 250);
+  --card-foreground: oklch(0.94 0.002 250);
+  --popover: oklch(0.24 0.003 250);
+  --popover-foreground: oklch(0.94 0.002 250);
+  --primary: oklch(0.80 0.004 250);
+  --primary-foreground: oklch(0.20 0.003 250);
+  --secondary: oklch(0.32 0.003 250);
+  --secondary-foreground: oklch(0.93 0.002 250);
+  --muted: oklch(0.30 0.003 250);
+  --muted-foreground: oklch(0.68 0.003 250);
+  --accent: oklch(0.36 0.003 250);
+  --accent-foreground: oklch(0.95 0.002 250);
+  --destructive: oklch(0.55 0.15 27);
+  --destructive-foreground: oklch(0.96 0.005 250);
+  --border: oklch(0.34 0.003 250);
+  --input: oklch(0.31 0.003 250);
+  --ring: oklch(0.72 0.003 250);
+  --shell: oklch(0.15 0.002 250);
+  --overlay: oklch(0.10 0.002 250);
   --shadow-player: 0 30px 80px color-mix(in oklab, var(--overlay) 70%, transparent), 0 5px 18px color-mix(in oklab, var(--overlay) 55%, transparent);
-  --shadow-tactile: 0 4px 0 color-mix(in oklab, var(--overlay) 85%, transparent), 0 6px 12px color-mix(in oklab, var(--overlay) 55%, transparent), inset 0 1px 0 color-mix(in oklab, var(--foreground) 22%, transparent);
-  --shadow-inset: inset 0 3px 8px color-mix(in oklab, var(--overlay) 80%, transparent);
-  --chart-1: oklch(0.66 0.17 47);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.23 0.023 52);
-  --sidebar-foreground: oklch(0.93 0.028 82);
-  --sidebar-primary: oklch(0.66 0.17 47);
-  --sidebar-primary-foreground: oklch(0.17 0.02 50);
-  --sidebar-accent: oklch(0.30 0.026 55);
-  --sidebar-accent-foreground: oklch(0.93 0.028 82);
-  --sidebar-border: oklch(0.36 0.03 55);
-  --sidebar-ring: oklch(0.66 0.17 47);
+  --shadow-tactile:
+    0 1px 2px color-mix(in oklab, var(--overlay) 70%, transparent),
+    0 -1px 2px color-mix(in oklab, var(--overlay) 40%, transparent),
+    1px 0 2px color-mix(in oklab, var(--overlay) 40%, transparent),
+    -1px 0 2px color-mix(in oklab, var(--overlay) 40%, transparent),
+    inset 0 1px 0 color-mix(in oklab, var(--foreground) 16%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, var(--overlay) 55%, transparent);
+  --shadow-inset:
+    inset 0 2px 5px color-mix(in oklab, var(--overlay) 75%, transparent),
+    inset 0 -2px 5px color-mix(in oklab, var(--foreground) 8%, transparent),
+    inset 2px 0 4px color-mix(in oklab, var(--overlay) 45%, transparent),
+    inset -2px 0 4px color-mix(in oklab, var(--overlay) 45%, transparent);
+  --chart-1: oklch(0.80 0.004 250);
+  --chart-2: oklch(0.65 0.004 250);
+  --chart-3: oklch(0.50 0.004 250);
+  --chart-4: oklch(0.40 0.004 250);
+  --chart-5: oklch(0.32 0.004 250);
+  --sidebar: oklch(0.24 0.003 250);
+  --sidebar-foreground: oklch(0.94 0.002 250);
+  --sidebar-primary: oklch(0.80 0.004 250);
+  --sidebar-primary-foreground: oklch(0.20 0.003 250);
+  --sidebar-accent: oklch(0.31 0.003 250);
+  --sidebar-accent-foreground: oklch(0.94 0.002 250);
+  --sidebar-border: oklch(0.34 0.003 250);
+  --sidebar-ring: oklch(0.72 0.003 250);
 }
 
 html { color-scheme: dark; }
@@ -158,12 +168,20 @@ html { color-scheme: dark; }
 }
 
 .album-frame {
-  box-shadow: 0 10px 0 color-mix(in oklab, var(--overlay) 75%, transparent), 0 22px 40px color-mix(in oklab, var(--overlay) 70%, transparent), inset 0 0 0 1px color-mix(in oklab, var(--foreground) 12%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--overlay) 60%, transparent),
+    0 6px 18px color-mix(in oklab, var(--overlay) 55%, transparent),
+    inset 0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent);
 }
 
 .control-dial {
-  background: radial-gradient(circle at 45% 34%, color-mix(in oklab, var(--secondary) 88%, var(--foreground)), color-mix(in oklab, var(--background) 85%, var(--overlay)));
-  box-shadow: inset 0 4px 12px color-mix(in oklab, var(--overlay) 70%, transparent), inset 0 -1px 0 color-mix(in oklab, var(--foreground) 12%, transparent), 0 4px 0 color-mix(in oklab, var(--overlay) 80%, transparent), 0 10px 22px color-mix(in oklab, var(--overlay) 55%, transparent);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--background) 92%, var(--overlay)), color-mix(in oklab, var(--card) 90%, var(--foreground) 2%));
+  box-shadow:
+    inset 0 2px 6px color-mix(in oklab, var(--overlay) 70%, transparent),
+    inset 0 -2px 6px color-mix(in oklab, var(--foreground) 8%, transparent),
+    inset 2px 0 5px color-mix(in oklab, var(--overlay) 45%, transparent),
+    inset -2px 0 5px color-mix(in oklab, var(--overlay) 45%, transparent),
+    0 1px 0 color-mix(in oklab, var(--foreground) 8%, transparent);
 }
 
 
