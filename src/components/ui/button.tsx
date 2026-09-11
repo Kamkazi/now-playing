@@ -31,7 +31,7 @@ const buttonVariants = cva(
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
         control: "h-14 w-14 rounded-full p-0 [&_svg]:size-6",
-        dial: "h-16 w-16 rounded-full p-0 [&_svg]:size-7",
+        dial: "h-[70px] w-[70px] rounded-full p-0 [&_svg]:size-8",
       },
     },
     defaultVariants: {
