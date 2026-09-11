@@ -115,7 +115,10 @@ function NowPlaying() {
     if (target < 0 || target >= queueIds.length) return;
     setQueueIds((items) => {
       const next = [...items];
-      [next[index], next[target]] = [next[target], next[index]];
+      const moving = next[index];
+      if (moving === undefined) return items;
+      next.splice(index, 1);
+      next.splice(target, 0, moving);
       return next;
     });
   };

@@ -16,7 +16,7 @@ export type Track = {
   track: number;
 };
 
-export const tracks: Track[] = [
+export const tracks: [Track, ...Track[]] = [
   { id: 1, title: "Sun Through Static", album: "Signal / Solstice", year: 1976, artist: "The Meridian Assembly", composer: "Mara Venn", genre: "Experimental Soul", duration: 253, art: solsticeArt, track: 1 },
   { id: 2, title: "Copper Horizon", album: "Signal / Solstice", year: 1976, artist: "The Meridian Assembly", composer: "Mara Venn", genre: "Experimental Soul", duration: 218, art: solsticeArt, track: 2 },
   { id: 3, title: "Antenna Bloom", album: "Signal / Solstice", year: 1976, artist: "The Meridian Assembly", composer: "Mara Venn", genre: "Experimental Soul", duration: 287, art: solsticeArt, track: 3 },
