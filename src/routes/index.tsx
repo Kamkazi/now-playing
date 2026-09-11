@@ -7,6 +7,7 @@ import {
   Heart,
   Info,
   ListMusic,
+  Mic2,
   Music2,
   Pause,
   Play,
@@ -148,14 +149,16 @@ function NowPlaying() {
         <header className="grid grid-cols-[3rem_minmax(0,1fr)_3rem] items-center gap-3 px-5 pb-2 pt-[max(1.15rem,env(safe-area-inset-top))]">
           <Button aria-label="Search library" variant="player" size="control" onClick={() => setPanel("search")}><Search /></Button>
           <div className="min-w-0 text-center">
-            <p className="font-display text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Automatic resume</p>
+            <button onClick={() => setPanel("settings")} aria-label="Settings" className="mx-auto flex items-center gap-1.5 rounded-full px-2 py-0.5 font-display text-[11px] uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground">
+              <Settings className="h-3 w-3" />
+              Automatic resume
+            </button>
             <h1 className="truncate font-display text-2xl font-bold uppercase">Now Playing</h1>
           </div>
           <Button aria-label="Track information" variant="player" size="control" onClick={() => setPanel("info")}><Info /></Button>
         </header>
 
         <div className="relative px-5 pt-3">
-          <Button aria-label="Settings" variant="ghost" size="icon" className="absolute right-6 top-4 z-10 rounded-full bg-card/80 backdrop-blur-sm" onClick={() => setPanel("settings")}><Settings /></Button>
           <div className="album-frame mx-auto aspect-square w-[min(76vw,315px)] overflow-hidden rounded-[10px]">
             <img key={track.art} src={track.art} alt={`Album art for ${track.album}`} width={1024} height={1024} className="h-full w-full object-cover animate-fade-in" />
           </div>
@@ -178,7 +181,7 @@ function NowPlaying() {
           <div className="grid grid-cols-[1fr_2fr_1fr] items-center gap-3">
 
             <div className="grid gap-3">
-              <Button aria-label="Show lyrics" variant="player" size="control" onClick={() => setPanel("lyrics")}><span className="font-display text-base font-bold">LYR</span></Button>
+              <Button aria-label="Show lyrics" variant="player" size="control" onClick={() => setPanel("lyrics")}><Mic2 /></Button>
               <Button aria-label={repeat ? "Repeat on" : "Repeat off"} variant={repeat ? "active" : "player"} size="control" onClick={() => setRepeat(!repeat)}><Repeat2 /></Button>
             </div>
             <div className="control-dial mx-auto grid h-[174px] w-[174px] grid-cols-3 grid-rows-3 place-items-center rounded-full border border-border">
