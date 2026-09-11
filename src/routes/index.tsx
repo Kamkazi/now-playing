@@ -268,7 +268,7 @@ function SettingsPanel({ notice, setNotice, passwordVisible, setPasswordVisible 
 }
 
 function LyricsPanel({ track }: { track: Track }) {
-  return <div className="px-7 pb-10 text-center"><p className="mb-7 text-xs font-bold uppercase tracking-[0.18em] text-primary">{track.title}</p><div className="space-y-5 font-display text-2xl font-bold leading-snug"><p className="text-muted-foreground">Static in the morning</p><p>Sunlight on the wire</p><p className="text-primary">Every signal carries</p><p className="text-muted-foreground">A little borrowed fire</p></div></div>;
+  return <div className="px-7 pb-10 text-center"><p className="mb-7 text-xs font-bold uppercase tracking-[0.18em] text-primary">{track.title}</p><div className="space-y-5 font-display text-2xl font-bold leading-snug"><p className="text-muted-foreground">Shaam dhale, hawa chale</p><p>Dil kahin kho gaya</p><p className="text-primary">Tere bina, ye silsila</p><p className="text-muted-foreground">Adhoora so gaya</p></div><p className="mt-8 text-xs text-muted-foreground">Sample lyrics placeholder — real lyrics come from the server.</p></div>;
 }
 
 function AirplayPanel() {
