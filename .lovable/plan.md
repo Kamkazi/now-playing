@@ -35,7 +35,7 @@ This plan builds the complete interface with realistic sample music data. Connec
 **5. Settings (sheet)**
 - Navidrome/Subsonic server URL, username, password, plus a "Test connection" button (shows a not-yet-connected notice for now).
 
-Plus: a one-time music library permission prompt on first launch.
+Streaming only — no local music library access, so no permission prompt on first launch.
 
 ## Resume behaviour
 
