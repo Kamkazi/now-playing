@@ -153,19 +153,19 @@ html { color-scheme: dark; }
   inset: 0;
   pointer-events: none;
   z-index: 20;
-  opacity: 0.12;
-  background-image: repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in oklab, var(--foreground) 7%, transparent) 4px);
-  mix-blend-mode: multiply;
+  opacity: 0.10;
+  background-image: repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in oklab, var(--overlay) 55%, transparent) 4px);
 }
 
 .album-frame {
-  box-shadow: 0 8px 0 color-mix(in oklab, var(--foreground) 22%, transparent), 0 18px 35px color-mix(in oklab, var(--overlay) 20%, transparent);
+  box-shadow: 0 10px 0 color-mix(in oklab, var(--overlay) 75%, transparent), 0 22px 40px color-mix(in oklab, var(--overlay) 70%, transparent), inset 0 0 0 1px color-mix(in oklab, var(--foreground) 12%, transparent);
 }
 
 .control-dial {
-  background: radial-gradient(circle at 45% 38%, var(--secondary), color-mix(in oklab, var(--card) 82%, var(--foreground)));
-  box-shadow: inset 0 3px 10px color-mix(in oklab, var(--foreground) 18%, transparent), 0 3px 0 color-mix(in oklab, var(--foreground) 22%, transparent);
+  background: radial-gradient(circle at 45% 34%, color-mix(in oklab, var(--secondary) 88%, var(--foreground)), color-mix(in oklab, var(--background) 85%, var(--overlay)));
+  box-shadow: inset 0 4px 12px color-mix(in oklab, var(--overlay) 70%, transparent), inset 0 -1px 0 color-mix(in oklab, var(--foreground) 12%, transparent), 0 4px 0 color-mix(in oklab, var(--overlay) 80%, transparent), 0 10px 22px color-mix(in oklab, var(--overlay) 55%, transparent);
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
