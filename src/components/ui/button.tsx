@@ -14,14 +14,19 @@ const buttonVariants = cva(
         outline:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost: "hover:bg-accent hover:text-accent-foreground active:scale-95",
         link: "text-primary underline-offset-4 hover:underline",
+        player: "rounded-full border border-border bg-secondary text-secondary-foreground shadow-tactile hover:bg-accent active:translate-y-px active:shadow-inset",
+        active: "rounded-full border border-primary bg-primary text-primary-foreground shadow-inset active:translate-y-px",
+        primaryDial: "rounded-full border-2 border-border bg-primary text-primary-foreground shadow-tactile hover:bg-primary/90 active:translate-y-px active:shadow-inset",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
+        control: "h-14 w-14 rounded-full p-0 [&_svg]:size-6",
+        dial: "h-16 w-16 rounded-full p-0 [&_svg]:size-7",
       },
     },
     defaultVariants: {
