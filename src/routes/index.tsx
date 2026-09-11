@@ -7,10 +7,11 @@ import {
   Heart,
   Info,
   ListMusic,
-  Mic2,
+  MessageSquareQuote,
   Music2,
   Pause,
   Play,
+  Quote,
   Repeat2,
   Search,
   Settings,
@@ -157,7 +158,7 @@ function NowPlaying() {
           <div className="min-w-0 text-center">
             <button onClick={() => setPanel("settings")} aria-label="Settings" className="mx-auto flex items-center gap-1.5 rounded-full px-2 py-0.5 font-display text-[11px] uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground">
               <Settings className="h-3 w-3" />
-              Automatic resume
+              SmartHub
             </button>
             <h1 className="truncate font-display text-2xl font-bold uppercase">Now Playing</h1>
           </div>
@@ -186,7 +187,7 @@ function NowPlaying() {
         <section className="relative px-5 pb-[max(3rem,env(safe-area-inset-bottom))] pt-3">
           <div className="grid grid-cols-[3rem_1fr_3rem] items-center justify-items-center gap-3">
             <div className="grid gap-3">
-              <Button aria-label="Show lyrics" variant="player" size="control" onClick={() => setPanel("lyrics")}><Mic2 /></Button>
+              <Button aria-label="Show lyrics" variant="player" size="control" onClick={() => setPanel("lyrics")}><MessageSquareQuote className="h-5 w-5" /></Button>
               <Button aria-label={repeat ? "Repeat on" : "Repeat off"} variant={repeat ? "active" : "player"} size="control" onClick={() => setRepeat(!repeat)}><Repeat2 /></Button>
             </div>
             <div className="control-dial mx-auto grid h-[192px] w-[192px] grid-cols-3 grid-rows-3 place-items-center rounded-full border border-border">
@@ -264,7 +265,7 @@ function InfoPanel({ track }: { track: Track }) {
 }
 
 function SettingsPanel({ notice, setNotice, passwordVisible, setPasswordVisible }: { notice: string; setNotice: (value: string) => void; passwordVisible: boolean; setPasswordVisible: (value: boolean) => void }) {
-  return <div className="overflow-y-auto px-5 pb-8"><p className="mb-6 text-sm text-muted-foreground">Navidrome / Subsonic connection</p><div className="space-y-5"><label className="block text-sm font-semibold">Server URL<Input defaultValue="https://music.example.com" className="mt-2 h-12 bg-muted" /></label><label className="block text-sm font-semibold">Username<Input defaultValue="listener" className="mt-2 h-12 bg-muted" /></label><label className="block text-sm font-semibold">Password<div className="relative mt-2"><Input type={passwordVisible ? "text" : "password"} defaultValue="demopassword" className="h-12 bg-muted pr-20" /><button className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold uppercase text-primary" onClick={() => setPasswordVisible(!passwordVisible)}>{passwordVisible ? "Hide" : "Show"}</button></div></label><Button className="h-12 w-full rounded-full" onClick={() => setNotice("Static prototype — no server connection was attempted.")}>{notice ? <Check /> : null} Test connection</Button>{notice && <p role="status" className="rounded-md border border-border bg-muted p-3 text-sm">{notice}</p>}</div></div>;
+  return <div className="overflow-y-auto px-5 pb-8"><p className="mb-6 text-sm text-muted-foreground">Navidrome / Subsonic connection</p><div className="space-y-5"><label className="block text-sm font-semibold">Server Name<Input defaultValue="SmartHub" className="mt-2 h-12 bg-muted" /></label><label className="block text-sm font-semibold">Server URL<Input defaultValue="https://music.example.com" className="mt-2 h-12 bg-muted" /></label><label className="block text-sm font-semibold">Username<Input defaultValue="listener" className="mt-2 h-12 bg-muted" /></label><label className="block text-sm font-semibold">Password<div className="relative mt-2"><Input type={passwordVisible ? "text" : "password"} defaultValue="demopassword" className="h-12 bg-muted pr-20" /><button className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold uppercase text-primary" onClick={() => setPasswordVisible(!passwordVisible)}>{passwordVisible ? "Hide" : "Show"}</button></div></label><Button className="h-12 w-full rounded-full" onClick={() => setNotice("Static prototype — no server connection was attempted.")}>{notice ? <Check /> : null} Test connection</Button>{notice && <p role="status" className="rounded-md border border-border bg-muted p-3 text-sm">{notice}</p>}</div></div>;
 }
 
 function LyricsPanel({ track }: { track: Track }) {
